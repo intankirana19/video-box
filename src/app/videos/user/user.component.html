@@ -1,0 +1,4 @@
+<div *ngIf="userData" class="profile">
+    <img [src]="userData.pictureUrl" alt="profile" [style.height]="imageSize">
+    <p [style.color]="fontColor" [style.font-size]="fontSize" [style.font-weight]="fontStyle">{{ userData.name }}</p>
+</div>

@@ -1,0 +1,53 @@
+<div class="detail" *ngIf="videoDetail">
+    <div class="detail__title" *ngIf="isOwner; else isNotOwner">
+        <input type="text" [formControl]="title" [style.width]="isTitleChanging ? '80%' : '100%'">
+        <div class="detail__title-button" *ngIf="isTitleChanging" (click)="updateTitle()">
+            <p>Save</p>
+        </div>
+    </div>
+    <ng-template #isNotOwner>
+        <h2 class="detail__title">{{ videoDetail.title }}</h2>
+    </ng-template>
+
+    <div class="detail__video">
+        <video
+            class="video"
+            [src]="videoDetail.url"
+            controls
+            playsinline
+            [mediaStream]="{ video: true }"
+            crossorigin="anonymous"
+        >
+            <track label="English" kind="captions" hidden>
+        </video>
+        <img *ngIf="showStar" @fadeIn @fadeOut src="../../../assets/svg/animate_star.svg" alt="animated_star">
+    </div>
+
+    <div class="detail__action">
+        <div class="detail__action-button" (click)="addReaction('snapshot')">
+            <img src="../../../assets/svg/dark_snapshot.svg" alt="snapshot_reaction">
+            <p>Snapshot</p>
+        </div>
+
+        <div class="detail__action-button" (click)="addReaction('star')">
+            <img src="../../../assets/svg/dark_star.svg" alt="star_reaction">
+            <p>Star</p>
+        </div>
+
+        <app-user class="detail__action-user" [userData]="videoDetail.author" [fontColor]="'var(--grey)'" [fontSize]="'14px'" [imageSize]="'24px'"></app-user>
+    </div>
+    
+    <div *ngIf="reactionData.length > 0">
+        <h4>Reactions</h4>
+        <div class="detail__reactions" *ngFor="let reaction of reactionData" (click)="onClickReaction(reaction.id, reaction.timeframe)" [style.background-color]="isSelectedReaction(reaction.id)">
+            <img [src]="reactionIcon(reaction.type)" [alt]="reaction.type">
+            <strong>{{ getDateTime(reaction.timeframe) }}</strong>
+            <p>{{ reactionDescription(reaction.author.name, reaction.type) }}</p>
+            <p>({{(reaction.type ==='star' ? reaction.postedDate : reaction.createdDate) | date:'dd/MM/yyyy' :'+0000'}})</p>
+            <div class="detail__reactions-image">
+                <img *ngIf="reaction.type === 'snapshot'" [src]="reaction.imageUrl" alt="snapshot">
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="header">
+  <img *ngIf="isListPage; else isDetailPage" class="header__logo" src="../../../assets/svg/splyza_logo.svg" alt="logo">
+  <ng-template #isDetailPage>
+    <div class="header__back" (click)="navigateToVideoList()">
+        <img src="../../../assets/svg/left_arrow.svg" alt="back">
+        <p>Back</p>
+    </div>
+  </ng-template>
+  <app-user [userData]="userSignalData()" [fontColor]="'white'" [fontSize]="'16px'" [fontStyle]="'700'" [imageSize]="'32px'"></app-user>
+</div>

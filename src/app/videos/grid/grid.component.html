@@ -1,0 +1,14 @@
+<div class="grid">
+    <div *ngFor="let data of datas" class="grid__content" (click)="onClick(data.id)">
+        <div class="grid__content-image">
+            <img [src]="data.previewUrl" alt="back">
+        </div>
+        <div class="grid__content-desc">
+            <h3>{{ data.title }}</h3>
+            <div class="grid__content-desc_footer">
+                <p>{{ data.createdDate | date: 'dd/mm/yyyy':'+0000' }}</p>
+                <app-user [userData]="data.author" [fontColor]="'var(--grey)'" [fontSize]="'14px'" [imageSize]="'24px'"></app-user>
+            </div>
+        </div>
+    </div>
+</div>

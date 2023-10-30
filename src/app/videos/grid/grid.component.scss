@@ -1,0 +1,50 @@
+.grid {
+    width: 60rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+
+    &__content {
+        width: 100%;
+        height: 18.2rem;
+
+        &-image {
+            width: 100%;
+            height: 13.5rem;
+
+            img {
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover;
+            }
+        }
+
+        &-desc {
+            padding: 12px;
+
+            h3 {
+                margin-block-start: 0;
+                margin-block-end: 0;
+            }
+            
+            &_footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+
+                p {
+                    color: var(--grey);
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: var(--hover-grey);
+            cursor: pointer;
+        }
+    }
+}

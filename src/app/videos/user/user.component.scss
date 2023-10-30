@@ -1,0 +1,11 @@
+.profile {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    img {
+        border: 1px solid var(--light-grey);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
