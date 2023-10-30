@@ -1,4 +1,6 @@
-# VideoBox - Intan Chrizsantika Kirana (www.linkedin.com/in/intan-chrizsantika-kirana-976246102)
+# VideoBox
+
+Intan Chrizsantika Kirana (www.linkedin.com/in/intan-chrizsantika-kirana-976246102).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
